@@ -71,13 +71,19 @@
               "type": "object",
               "properties": {
                 "title": {
-                  "example": "Elden Ring"
+                  "example": "Dragon Quest XI: Echoes of an Elusive Age"
+                },
+                "imageUrl": {
+                  "example": "https://image.api.playstation.com/vulcan/ap/rnd/202007/1607/1w4g3BZuNq9EpLvJS4XBT401.png"
+                },
+                "publisherId": {
+                  "example": "1"
                 },
                 "description": {
-                  "example": "Elden Ring is a 2022 action role-playing game developed by FromSoftware. It was directed by Hidetaka Miyazaki with worldbuilding provided by fantasy writer George R. R. Martin."
+                  "example": "Dragon Quest XI: Echoes of an Elusive Age is a role-playing video game by Square Enix. The eleventh entry in the long-running Dragon Quest video game series, it was released in Japan for the Nintendo 3DS and PlayStation 4 in July 2017 and worldwide for the PlayStation 4 and Windows in September 2018."
                 },
                 "yearRelease": {
-                  "example": "2022"
+                  "example": "2017"
                 },
                 "genreIds": {
                   "example": "[1, 2]"
@@ -131,6 +137,12 @@
               "properties": {
                 "title": {
                   "example": "Grand Theft Auto V"
+                },
+                "imageUrl": {
+                  "example": "https://media-rockstargames-com.akamaized.net/rockstargames-newsite/img/global/games/fob/1280/V.jpg"
+                },
+                "publisherId": {
+                  "example": "1"
                 },
                 "description": {
                   "example": "Grand Theft Auto V is a 2013 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the seventh main entry in the Grand Theft Auto series, following 2008's Grand Theft Auto IV, and the fifteenth instalment overall."

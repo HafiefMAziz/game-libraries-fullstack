@@ -15,7 +15,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   platform.init({
-    name: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          message: 'Please enter the name'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'platform',

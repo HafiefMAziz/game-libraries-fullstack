@@ -64,7 +64,11 @@ class PublisherController {
                 })
             } 
         } catch (error) {
-            res.send(error);
+            if(error.name === "SequelizeValidationError"){
+                res.status(401).json(error)
+            }else{
+                res.status(500).json(error);
+            }
         }
 
     }
@@ -77,7 +81,11 @@ class PublisherController {
                 oldPublisher
             })
         } catch (error) {
-            res.send(error);
+            if(error.name === "SequelizeValidationError"){
+                res.status(401).json(error)
+            }else{
+                res.status(500).json(error);
+            }
         }
 
     }
@@ -107,7 +115,11 @@ class PublisherController {
                 })
             }
         } catch (error) {
-            res.send(error);
+            if(error.name === "SequelizeValidationError"){
+                res.status(401).json(error)
+            }else{
+                res.status(500).json(error);
+            }
         }
 
     }

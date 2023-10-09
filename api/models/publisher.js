@@ -17,7 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   publisher.init({
-    name: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          message: 'Please enter the name'
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'publisher',

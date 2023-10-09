@@ -18,7 +18,7 @@ class GenreController {
                 })
             }
         } catch (error) {
-            res.send(error);
+            res.status(500).json(error);
         }
 
     }
@@ -36,7 +36,11 @@ class GenreController {
                 })
             }
         } catch (error) {
-            res.send(error);
+            if(error.name === "SequelizeValidationError"){
+                res.status(401).json(error)
+            }else{
+                res.status(500).json(error);
+            }
         }
 
     }
@@ -64,7 +68,11 @@ class GenreController {
                 })
             } 
         } catch (error) {
-            res.send(error);
+            if(error.name === "SequelizeValidationError"){
+                res.status(401).json(error)
+            }else{
+                res.status(500).json(error);
+            }
         }
 
     }
@@ -77,7 +85,7 @@ class GenreController {
                 oldGenre
             })
         } catch (error) {
-            res.send(error);
+            res.status(500).json(error);
         }
 
     }
@@ -107,7 +115,11 @@ class GenreController {
                 })
             }
         } catch (error) {
-            res.send(error);
+            if(error.name === "SequelizeValidationError"){
+                res.status(401).json(error)
+            }else{
+                res.status(500).json(error);
+            }
         }
 
     }
