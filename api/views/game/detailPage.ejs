@@ -1,0 +1,51 @@
+<%- include('../layouts/header.ejs') %>
+<% if(getGame){ %>
+    <button type="button" class="hBack btn btn-primary my-4 me-3"><i class="bi bi-arrow-left-square"></i> Back</button>
+    <a href="/games/updateForm/<%= getGame.id %>" type="button" class="btn btn-warning my-4"><i class="bi bi-pencil-square"></i> Edit Game</a>
+    <div class="card mb-4 px-0">
+        <div class="row g-0">
+          <div class="col-md-3">
+            <% if (getGame.imageUrl) { %>
+              <img src="<%= getGame.imageUrl %>" class="img-fluid rounded-start" style="max-width: 300px; max-height: 500px;">
+            <% } else { %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png" class="img-fluid rounded-start" style="max-width: 300px; max-height: 500px;">
+            <% } %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title"><%= getGame.title %> (<%= getGame.yearRelease %>)</h4>
+              <% if (getGame.publisher) { %>
+                <h5 class="card-subtitle mb-2"><%= getGame.publisher.name %></h5>
+                <% } %>
+              <% if (getGame.genres) { %>
+                  <h6 class="card-subtitle mb-2 text-muted">Genres: 
+                    <% getGame.genres.forEach((genre, index) => { %>
+                      <% if (getGame.genres.length === index+1) { %>
+                        <%= genre.name %>.
+                      <% } else { %>
+                        <%= genre.name %>,
+                      <% } %>
+                    <% })%>
+                  </h6>
+              <% } %>
+              <% if (getGame.platforms) { %>
+                <h6 class="card-subtitle mb-2 text-muted">Platforms: 
+                  <% getGame.platforms.forEach((platform, index) => { %>
+                    <% if (getGame.platforms.length === index+1) { %>
+                      <%= platform.name %>.
+                      <% } else { %>
+                        <%= platform.name %>,
+                      <% } %>
+                  <% })%>
+                </h6>
+              <% } %>
+              <p class="card-text"><%= getGame.description %></p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <p class="card-text"><small class="text-muted">Last updated : <%= getGame.updatedAt %></small></p>
+            </div>
+          </div>
+        </div>
+    </div>
+<% } %>
+<%- include('../layouts/footer.ejs') %>

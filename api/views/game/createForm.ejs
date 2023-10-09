@@ -1,0 +1,59 @@
+<button type="button" class="btn btn-success my-4" data-bs-toggle="modal" data-bs-target="#addGame"><i class="bi bi-plus-lg"></i>Add Game</button>
+<div class="modal fade" id="addGame" tabindex="-1" aria-labelledby="addGameLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addGameLabel">Add a new Game</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/games/create" method="post">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="titleInput" class="form-label">Title</label>
+                    <input required  type="text" name="title" class="form-control" id="titleInput">
+                </div>
+                <div class="mb-3">
+                  <label for="descriptionInput" class="form-label">Description</label>
+                  <textarea required type="text" name="description" class="form-control" id="descriptionInput" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="imageUrlInput" class="form-label">Image URL</label>
+                    <input type="url" name="imageUrl" class="form-control" id="imageUrlInput">
+                </div>
+                <div class="mb-3">
+                    <label for="yearReleaseInput" class="form-label">Release Year</label>
+                    <input required type="number" name="yearRelease" class="form-control" id="yearReleaseInput" min="1900" max="2099" value="2023">
+                </div>
+                <div class="mb-3">
+                    <label for="publisherIdInput" class="form-label">Publishers</label>
+                    <select required id="publisherIdInput" type="number" name="publisherId" class="form-select">
+                      <% publishers.forEach(publisher => { %>
+                        <option selected value="<%= publisher.id %>"><%= publisher.name %></option>
+                      <% }) %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="genreIdsInput" class="form-label">Genres</label>
+                    <select multiple id="genreIdsInput" type="number" name="genreIds" class="form-select chosen-select">
+                      <% genres.forEach(genre => { %>
+                        <option value="<%= genre.id %>"><%= genre.name %></option>
+                      <% }) %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="platformIdsInput" class="form-label">Platforms</label>
+                    <select multiple id="platformIdsInput" type="number" name="platformIds" class="form-select chosen-select">
+                      <% platforms.forEach(platform => { %>
+                        <option value="<%= platform.id %>"><%= platform.name %></option>
+                      <% }) %>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-success">Confirm</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>

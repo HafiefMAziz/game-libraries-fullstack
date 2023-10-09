@@ -1,0 +1,32 @@
+<%- include('../layouts/header.ejs') %>
+<%- include('./createForm.ejs') %>
+
+<% if(platforms){ %>
+    <table class="table table-striped border mb-4 align-middle">
+        <thead>
+            <tr>
+                <th class="col-md-1">ID</th>
+                <th class="col-md-6">Name</th>
+                <th class="col-md-3 text-center">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% platforms.forEach(platform => { %>
+            <tr>
+                <th>
+                    <%= platform.id %>
+                </th>
+                <td>
+                    <%= platform.name %>
+                </td>
+                <td class="text-center">
+                    <a href="/platforms/updateForm/<%= platform.id %>" type="button"
+                        class="btn btn-warning me-1"><i class="bi bi-pencil-square"></i></button>
+                        <a href="/platforms/delete/<%= platform.id %>" type="button"
+                            class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+        <% }); }%>
+        </tbody>
+    </table>
+<%- include('../layouts/footer.ejs') %>
