@@ -1,29 +1,29 @@
-import axios from 'axios'
-const urls = "http://localhost:3000/"
-const getGames  = async (cb) =>{
-    try {
-        let result = await axios({
-            method : "GET",
-            url : urls
-        })
-       
-        cb(result.data.games)
-    } catch (error) {
-        console.log(error)
-    }
-}
+import axios from "axios";
+const urls = "http://localhost:3000";
+const getGames = async (cb) => {
+  try {
+    let result = await axios({
+      method: "GET",
+      url: urls,
+    });
 
-const latestGames = async (cb) => {
-    try {
-        let result = await axios({
-            method : "GET",
-            url : urls
-        })
-        console.log(result.data.games[0])
-        cb(result.data.games[0])
-    } catch (error) {
-        console.log(error)
-    }
-}
+    cb(result.data.games);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export {getGames,latestGames}
+const detailGame = async (id, cb) => {
+  try {
+    let result = await axios({
+      method: "GET",
+      url: urls + "/games/detail/" + id,
+    });
+    // console.log(result.data.getGame)
+    cb(result.data.getGame);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { getGames, detailGame };

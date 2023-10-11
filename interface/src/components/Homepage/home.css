@@ -1,11 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   box-sizing: border-box;
+  margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
 }
 
 .container {
-    padding-top: 100px;
-  display: flex;
+    padding-top: 50px;
+  /* display: flex;
 
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -14,9 +18,11 @@
   align-items: center;
   margin: 0;
   background-color: #f7f8fc;
-
-  color: #10182f;
-  
+  font-family: "Roboto", sans-serif;
+  color: #10182f; */
+  margin: auto;
+  max-width: 60%;
+  overflow: hidden;
 }
 
 .container a{
@@ -24,14 +30,13 @@ text-decoration: none;
 color: black;
 }
 .card {
+
   margin: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   width: 300px;
-  
-  
 }
 .card-header img {
   width: 100%;
@@ -45,7 +50,6 @@ color: black;
   align-items: flex-start;
   padding: 20px;
   /* min-height: 500px; */
-  
 }
 
 .tag {
@@ -71,6 +75,10 @@ color: black;
 .card-body p {
   font-size: 13px;
   margin: 0 0 40px;
+  max-width: 15ch;
+  overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 }
 .banner {
   height: 100vh;

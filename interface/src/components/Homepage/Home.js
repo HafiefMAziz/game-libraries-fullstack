@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { getGames } from "../../fetchs/gamesFetch";
+import { Link } from "react-router-dom";
 import "./home.css";
 const Home = () => {
   const [games, setGames] = useState([]);
@@ -9,11 +10,14 @@ const Home = () => {
 
     return () => {};
   }, []);
+
+
   return (
     <div className="container">
       {games.map((e) => {
+     
         return (
-          <a href="#">
+          <Link to={`games/detail/${e.id}`}>
              <div className="card">
             <div className="card-header">
               <img src={e.imageUrl} alt="rover" />
@@ -27,7 +31,7 @@ const Home = () => {
               <p>{e.description}</p>
             </div>
           </div>
-          </a>
+          </Link>
          
         );
       })}

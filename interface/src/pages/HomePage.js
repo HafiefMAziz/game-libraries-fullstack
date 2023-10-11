@@ -1,5 +1,5 @@
 import React from 'react'
-import { Home,Carousels } from '../components'
+import { Home,Carousels} from '../components'
 
 const HomePage = () => {
   return (

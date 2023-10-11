@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { getGames, latestGames } from "../../fetchs/gamesFetch";
 import "./home.css";
 const Carousels = () => {
   const gaming1 = require('../../assets/banner/1.jpg')
@@ -9,12 +8,7 @@ const Carousels = () => {
   const gaming4 = require('../../assets/banner/4.jpg')
   const gaming5 = require('../../assets/banner/5.jpg')
 
-  const [games, setGames] = useState([]);
-  useEffect(() => {
-    latestGames((result) => setGames(result));
-
-    return () => {};
-  }, []);
+  
 
   return (
     <>
