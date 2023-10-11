@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getGames } from "../../fetchs/gamesFetch";
 import { Link } from "react-router-dom";
 import "./home.css";
+import Loading from "../../helper/Loading/loading";
 const Home = () => {
   const [games, setGames] = useState([]);
   useEffect(() => {
@@ -14,7 +15,9 @@ const Home = () => {
 
   return (
     <div className="container">
-      {games.map((e) => {
+
+      {games.length > 0 ?
+      games.map((e) => {
      
         return (
           <Link to={`games/detail/${e.id}`}>
@@ -35,7 +38,7 @@ const Home = () => {
           </Link>
          
         );
-      })}
+      }) : <Loading></Loading>}
     </div>
   );
 };
