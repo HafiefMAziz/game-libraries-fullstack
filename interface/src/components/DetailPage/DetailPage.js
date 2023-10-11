@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { detailGame, getGames } from "../../fetchs/gamesFetch";
-import { useParams } from "react-router-dom";
+import {
+  useParams,
+
+  useNavigate,
+} from "react-router-dom";
+
 import "./detail.css";
 
 const DetailPage = () => {
   const [games, setGames] = useState([]);
   const [listGames, setListGames] = useState([]);
   const params = useParams();
-
+  const navigate = useNavigate();
   useEffect(() => {
     const { id } = params;
     detailGame(+id, (result) => {
@@ -31,6 +36,13 @@ const DetailPage = () => {
   games.platforms?.map((e) => {
     return platform.push(e.name);
   });
+  const limitItems = listGames.slice(0, 3);
+
+  const handleLinkClick = () => {
+    const { id } = params;
+
+    navigate(`/games/detail/${id}`, { replace: true });
+  };
 
   return (
     <>
@@ -52,20 +64,15 @@ const DetailPage = () => {
             <p>Platforms : {platform.join(", ")}</p>
           </div>
           <div className="cards">
-            <h3>Popular Post</h3>
-            {listGames.map((e) => {
-              return(
-                <img className="anothers" src={e.imageUrl}></img>
-               
-              )
-           
+            <h3>Random Post</h3>
+            {limitItems.map((e) => {
+              return (
+                <a href={`${e.id}`} onClick={handleLinkClick}>
+                  <img className="anothers" src={e.imageUrl}></img>
+                </a>
+              );
             })}
-<br />
-            
-          </div>
-          <div className="cards">
-            <h3>Follow Me</h3>
-            <p>Some text..</p>
+            <br />
           </div>
         </div>
       </div>

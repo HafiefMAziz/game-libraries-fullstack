@@ -16,12 +16,10 @@
 }
 
 .anothers{
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  grid-gap: 10px; 
+  display: block;
 }
 .gameimg {
   width: 100%;

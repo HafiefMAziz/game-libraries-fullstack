@@ -7,7 +7,7 @@ const MainContent = () => {
     <Routes>
       <Route path="/" element={<HomePage></HomePage>} />
       <Route path="/about" element={<AboutPage></AboutPage>} />
-      <Route path="games">
+      <Route path="/games">
       <Route path="detail">
           <Route path=":id" element={
            <DetailPage></DetailPage>
@@ -15,6 +15,7 @@ const MainContent = () => {
             </Route>
           </Route>
          </Route>
+         
     </Routes>
    </>
   )
