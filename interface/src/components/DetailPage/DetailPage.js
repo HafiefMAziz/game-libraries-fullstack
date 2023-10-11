@@ -1,21 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { detailGame } from "../../fetchs/gamesFetch";
+import { detailGame, getGames } from "../../fetchs/gamesFetch";
 import { useParams } from "react-router-dom";
 import "./detail.css";
 
 const DetailPage = () => {
   const [games, setGames] = useState([]);
+  const [listGames, setListGames] = useState([]);
   const params = useParams();
 
   useEffect(() => {
     const { id } = params;
     detailGame(+id, (result) => {
-      setGames(result       
-      );
+      setGames(result);
     });
-   
+
     return () => {};
   }, [params]);
+
+  useEffect(() => {
+    getGames((result) => setListGames(result));
+    return () => {};
+  }, []);
+
+  let genre = [];
+  games.genres?.map((e) => {
+    return genre.push(e.name);
+  });
+
+  let platform = [];
+  games.platforms?.map((e) => {
+    return platform.push(e.name);
+  });
 
   return (
     <>
@@ -24,25 +39,29 @@ const DetailPage = () => {
           <div className="cards">
             <h2>{games.title}</h2>
             <h5>{games.createdAt}</h5>
-            <img className="fakeimg" src={games.imageUrl}></img>
-            <p>{games.description}</p>
+            <img className="gameimg" src={games.imageUrl}></img>
+            <div className="description">{games.description}</div>
           </div>
         </div>
         <div className="rightcolumn">
           <div className="cards">
-            <h2>About Me</h2>
-            <div className="fakeimg">Image</div>
-            <p>
-              Some text about me in culpa qui officia deserunt mollit anim..
-            </p>
+            <h2>Detail</h2>
+            <p> Release Year : {games.yearRelease} </p>
+            <p>Publisher : {games.publisher?.name}</p>
+            <p>Genres : {genre.join(", ")}</p>
+            <p>Platforms : {platform.join(", ")}</p>
           </div>
           <div className="cards">
             <h3>Popular Post</h3>
-            <div className="fakeimg">Image</div>
-            <br />
-            <div className="fakeimg">Image</div>
-            <br />
-            <div className="fakeimg">Image</div>
+            {listGames.map((e) => {
+              return(
+                <img className="anothers" src={e.imageUrl}></img>
+               
+              )
+           
+            })}
+<br />
+            
           </div>
           <div className="cards">
             <h3>Follow Me</h3>

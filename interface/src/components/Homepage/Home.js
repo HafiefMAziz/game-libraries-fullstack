@@ -23,9 +23,10 @@ const Home = () => {
               <img src={e.imageUrl} alt="rover" />
             </div>
             <div className="card-body">
-              {e.genres.map((el) => {
+              {/* {e.genres.map((el) => {
                 return <span className="tag tag-teal">{el.name}</span>;
-              })}
+              })} */}
+              <span className="tag tag-teal">{e.yearRelease}</span>
 
               <h4>{e.title}</h4>
               <p>{e.description}</p>
