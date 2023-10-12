@@ -22,6 +22,18 @@ class PlatformController {
         }
 
     }
+    static async getOnePlatform(req, res) {
+        try {
+            const platformId = +req.params.id
+            const getPlatform = await platform.findByPk(platformId);
+            res.send({
+                message: `Detail Platform`,
+                getPlatform,
+            })
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    }
     static async create(req, res) {
         try {
             const reqPlatform = req.body

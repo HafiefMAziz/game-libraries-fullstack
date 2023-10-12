@@ -22,6 +22,18 @@ class GenreController {
         }
 
     }
+    static async getOneGenre(req, res) {
+        try {
+            const genreId = +req.params.id
+            const getGenre = await genre.findByPk(genreId);
+            res.send({
+                message: `Detail Genre`,
+                getGenre,
+            })
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    }
     static async create(req, res) {
         try {
             const reqGenre = req.body

@@ -18,9 +18,21 @@ class PublisherController {
                 })
             }
         } catch (error) {
-            res.send(error);
+            res.status(500).json(error);
         }
 
+    }
+    static async getOnePublisher(req, res) {
+        try {
+            const publisherId = +req.params.id
+            const getPublisher = await publisher.findByPk(publisherId);
+            res.send({
+                message: `Detail Publisher`,
+                getPublisher,
+            })
+        } catch (error) {
+            res.status(500).json(error);
+        }
     }
     static async create(req, res) {
         try {
@@ -36,7 +48,7 @@ class PublisherController {
                 })
             }
         } catch (error) {
-            res.send(error);
+            res.status(500).json(error);
         }
 
     }
@@ -81,11 +93,7 @@ class PublisherController {
                 oldPublisher
             })
         } catch (error) {
-            if(error.name === "SequelizeValidationError"){
-                res.status(401).json(error)
-            }else{
-                res.status(500).json(error);
-            }
+            res.status(500).json(error);
         }
 
     }
