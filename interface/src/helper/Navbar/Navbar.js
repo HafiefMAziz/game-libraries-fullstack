@@ -1,7 +1,16 @@
 import React from 'react'
 import './navbar.css'
 import { Link } from "react-router-dom";
-const Navbar = () => {
+const Navbar = (props) => {
+  const {loginStatus,loginCbHandler} = props
+
+  const loginHandler = ()=>{
+    loginCbHandler(true)
+  }
+  const logoutHandler = () => {
+    localStorage.clear()
+    loginCbHandler(false)
+  }
   return (
     <>
      <nav class="navbar">
@@ -16,7 +25,11 @@ const Navbar = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-                <li><a href="#">Login</a></li>
+                {loginStatus ? 
+                  <li><a href="#" onClick={() => logoutHandler()}>Logout</a></li> :
+                  <li><Link to="/login" onClick={()=> loginHandler()}>Login</Link></li>
+              }
+                
             </ul>
             <h1 class="logo">JaggerPlay</h1>
         </div>

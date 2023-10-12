@@ -1,17 +1,11 @@
-
-import './App.css';
-import { MainContent } from './components';
-import { Navbar,Footer } from './helper';
+import "./App.css";
+import { MainContent } from "./components";
 
 function App() {
   return (
-   <>
-   
- <Navbar></Navbar>
-<MainContent></MainContent>
-<Footer></Footer>
-   </>
-   
+    <>
+      <MainContent></MainContent>
+    </>
   );
 }
 
