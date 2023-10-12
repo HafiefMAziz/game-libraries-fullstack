@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
+import { useNavigate } from "react-router-dom";
+
 import "./login.css";
+import { registerUser } from "../../fetchs/gamesFetch";
 
 const urls = "http://localhost:3000";
+
 const handleLogin = () => {
   window.location.href = "/";
 };
 const LoginPage = (props) => {
-  const { loginCbHandler } = props;
   const navigate = useNavigate();
+  const {loginCbHandler } = props;
+
   const [forms, setForms] = useState({
     email: "",
     password: "",
@@ -25,16 +30,27 @@ const LoginPage = (props) => {
       });
       const access_token = result.data.access_token;
       localStorage.setItem("access_token", access_token);
-      handleLogin();
-
-      loginCbHandler(true);
+    
+handleLogin()
+loginCbHandler(true)
+      // loginCbHandler(true);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const [register, setRegister] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
   const submitHandler = () => {
     loginUser();
+  };
+  const registerHandler = () => {
+    registerUser(register);
+    //navigation
   };
 
   useEffect(() => {
@@ -110,18 +126,40 @@ const LoginPage = (props) => {
                 </legend>
                 <div class="input-block">
                   <label for="signup-email">Username</label>
-                  <input id="signup-email" type="username" required />
+                  <input
+                    onChange={(e) =>
+                      setRegister({ ...register, username: e.target.value })
+                    }
+                    id="signup-email"
+                    type="username"
+                  />
                 </div>
                 <div class="input-block">
                   <label for="signup-email">E-mail</label>
-                  <input id="signup-email" type="email" required />
+                  <input
+                    onChange={(e) =>
+                      setRegister({ ...register, email: e.target.value })
+                    }
+                    id="signup-email"
+                    type="email"
+                  />
                 </div>
                 <div class="input-block">
                   <label for="signup-password">Password</label>
-                  <input id="signup-password" type="password" required />
+                  <input
+                    onChange={(e) =>
+                      setRegister({ ...register, password: e.target.value })
+                    }
+                    id="signup-password"
+                    type="password"
+                  />
                 </div>
               </fieldset>
-              <button type="submit" class="btn-signup">
+              <button
+                onClick={() => registerHandler()}
+                type="submit"
+                class="btn-signup"
+              >
                 Continue
               </button>
             </form>
