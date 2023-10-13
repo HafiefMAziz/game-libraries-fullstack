@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
-const port = 3001
-const cors = require('cors')
+const port = 3000
 const routes = require('./routes/index.js')
 //Swagger
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
 
-app.use(cors())
+const cors = require('cors')
+app.use(cors()) 
 
 app.use(express.json()); // supaya bisa req json
 app.use(express.urlencoded({extended : true}));

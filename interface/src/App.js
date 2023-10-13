@@ -1,15 +1,11 @@
-import './App.css';
-import Dashboard from './components/Dashboard/Dashboard';
-import Navbar from "./components/Dashboard/Navbar";
+import "./App.css";
+import { MainContent } from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-          <Navbar/>
-          <Dashboard/>
-      </header>
-    </div>
+    <>
+      <MainContent></MainContent>
+    </>
   );
 }
 
