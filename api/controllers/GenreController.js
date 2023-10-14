@@ -138,3 +138,4 @@ class GenreController {
 }
 
 module.exports = GenreController;
+
