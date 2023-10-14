@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `http://localhost:3001/games`
+const url = `http://localhost:3000/games`
 const getGames = async (cb) => {
     try{
         const res = await axios({

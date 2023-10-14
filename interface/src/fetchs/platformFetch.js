@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `http://localhost:3001/platforms`
+const url = `http://localhost:3000/platforms`
 const getPlatforms = async (cb) => {
     try{
         const res = await axios({

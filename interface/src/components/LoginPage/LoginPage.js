@@ -3,19 +3,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 import "./login.css";
 import { registerUser } from "../../fetchs/gamesFetch";
 
 const urls = "http://localhost:3000";
 
-const handleLogin = () => {
-  window.location.href = "/";
-};
 const LoginPage = (props) => {
   const navigate = useNavigate();
-  const {loginCbHandler } = props;
-
+  const { loginCbHandler } = props;
+  const handleLogin = () => {
+    window.location.href = "/dashboard/games";
+  };
+  const handleUser = () => {
+    window.location.href = "/";
+  };
   const [forms, setForms] = useState({
     email: "",
     password: "",
@@ -29,13 +31,25 @@ const LoginPage = (props) => {
         data: forms,
       });
       const access_token = result.data.access_token;
+      const level = result.data.level;
+      const username = result.data.username
       localStorage.setItem("access_token", access_token);
-    
-handleLogin()
-loginCbHandler(true)
-      // loginCbHandler(true);
+      localStorage.setItem("level", level);
+      localStorage.setItem("username", username);
+
+      if (level === "admin") {
+        handleLogin();
+        loginCbHandler(true);
+      } else {
+        handleUser();
+        loginCbHandler(true);
+      }
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "check your email or password",
+      });
     }
   };
 
@@ -50,7 +64,6 @@ loginCbHandler(true)
   };
   const registerHandler = () => {
     registerUser(register);
-    //navigation
   };
 
   useEffect(() => {
@@ -160,7 +173,7 @@ loginCbHandler(true)
                 type="submit"
                 class="btn-signup"
               >
-                Continue
+                Sign Up
               </button>
             </form>
           </div>

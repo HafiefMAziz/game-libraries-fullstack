@@ -36,7 +36,7 @@ const registerUser = async(user)=> {
     })
     Swal.fire(
       `Add`,
-      `lecturer has been added`,
+      `user has been added`,
       `success`
     )
   } catch (error) {

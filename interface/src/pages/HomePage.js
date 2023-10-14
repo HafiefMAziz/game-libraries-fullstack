@@ -21,9 +21,12 @@ const HomePage = () => {
  
   return (
  <>
- {loginStatus ? 
+
+
+{loginStatus ? 
  <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler}></Navbar> :
  <Navbar loginCbHandler={loginCbHandler}></Navbar>
+ 
 }
  
  <Carousels></Carousels>

@@ -8,7 +8,7 @@ const ContactPage = () => {
         <div className="right">
           <div className="right-container">
             <form action="" />
-            <br></br>
+   
             <h2 className="lg-view">Hubungi Kami</h2>
             <h2 className="sm-view">Hubungi Kami</h2>
             <input type="text" placeholder="Nama" />

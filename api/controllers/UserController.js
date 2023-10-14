@@ -30,7 +30,9 @@ class UserController {
             if(decryptPwd(password,emailFound.password)){
                 let access_token = tokenGenerator(emailFound)
                 console.log(access_token)
-                res.status(200).json({access_token})
+                let level = emailFound.level
+                let username = emailFound.username
+                res.status(200).json({access_token,level,username})
                 let verify = tokenVerifier(access_token)
                 console.log(verify)
             } else {
@@ -46,6 +48,9 @@ class UserController {
     } catch (error) {
         res.status(500).json(error)
     }
+  }
+  static async loginById(req ,res) {
+    
   }
 }
 

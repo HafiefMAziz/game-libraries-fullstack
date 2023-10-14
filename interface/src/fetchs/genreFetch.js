@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `http://localhost:3001/genres`
+const url = `http://localhost:3000/genres`
 const getGenres = async (cb) => {
     try{
         const res = await axios({

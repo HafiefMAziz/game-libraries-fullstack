@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `http://localhost:3001/publishers`
+const url = `http://localhost:3000/publishers`
 const getPublishers = async (cb) => {
     try{
         const res = await axios({

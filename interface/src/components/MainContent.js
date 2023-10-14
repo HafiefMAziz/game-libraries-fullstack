@@ -17,6 +17,8 @@ const MainContent = () => {
          </Route>
          <Route path="/contact" element={<ContactPage></ContactPage>} />
          <Route path="/login" element={<Login></Login>} />
+   
+   
     </Routes>
    </>
   )

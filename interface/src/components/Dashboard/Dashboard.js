@@ -9,7 +9,8 @@ import Genre from "../../pages/genre/Index"
 import UpdateFormGenre from "../../pages/genre/UpdateForm"
 import Platform from "../../pages/platform/Index"
 import UpdateFormPlatform from "../../pages/platform/UpdateForm"
-function dashboard() {
+import 'bootstrap/dist/css/bootstrap.css';
+function Dashboard() {
   return (
     <>
       <div className="bg-image"></div>
@@ -29,4 +30,4 @@ function dashboard() {
   )
 }
 
-export default dashboard
+export default Dashboard
