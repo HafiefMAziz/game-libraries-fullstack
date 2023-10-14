@@ -1,11 +1,12 @@
 import "./App.css";
-import { MainContent,Dashboard } from "./components";
+import { MainContent } from "./components";
 
 function App() {
   return (
     <>
-      <MainContent></MainContent>
-      <Dashboard></Dashboard>
+      <MainContent>
+
+      </MainContent>
       
     </>
   );

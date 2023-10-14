@@ -21,11 +21,11 @@ const Home = () => {
      
         return (
           <Link to={`games/detail/${e.id}`}>
-             <div className="card">
-            <div className="card-header">
+             <div className="card-home">
+            <div className="card-home-header">
               <img src={e.imageUrl} alt="rover" />
             </div>
-            <div className="card-body">
+            <div className="card-home-body">
               {/* {e.genres.map((el) => {
                 return <span className="tag tag-teal">{el.name}</span>;
               })} */}

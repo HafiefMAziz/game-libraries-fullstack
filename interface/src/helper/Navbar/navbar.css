@@ -1,5 +1,5 @@
-.navbar input[type="checkbox"],
-.navbar .hamburger-lines{
+.navbar-custom input[type="checkbox"],
+.navbar-custom .hamburger-lines{
     display: none;
 }
 
@@ -12,7 +12,7 @@
     
 }
 
-.navbar{
+.navbar-custom{
     box-shadow: 0px 5px 10px 0px #aaa;
     position: fixed;
     width: 100%;
@@ -23,7 +23,7 @@
     
 }
 
-.navbar-container{
+.navbar-custom-container{
     display: flex;
     justify-content: space-between;
     height: 64px;
@@ -45,13 +45,13 @@
     font-size: 1.3rem;
 }
 
-.navbar a{
+.navbar-custom a{
     position: relative;
     color: #000;
     text-decoration: none;
 }
 
-.navbar a::before{
+.navbar-custom a::before{
     content: "";
   position: absolute;
   display: block;
@@ -64,31 +64,31 @@
   transition: transform 0.3s ease;
 }
 
-.navbar a:hover::before {
+.navbar-custom a:hover::before {
     transform: scaleX(1);
   }
-.navbar a:hover{
+.navbar-custom a:hover{
     
     color: black;
 }
 
 @media (max-width: 768px){
-    .navbar{
+    .navbar-custom{
         opacity: 0.95;
     }
 
-    .navbar-container input[type="checkbox"],
-    .navbar-container .hamburger-lines{
+    .navbar-custom-container input[type="checkbox"],
+    .navbar-custom-container .hamburger-lines{
         display: block;
     }
 
-    .navbar-container{
+    .navbar-custom-container{
         display: block;
         position: relative;
         height: 64px;
     }
 
-    .navbar-container input[type="checkbox"]{
+    .navbar-custom-container input[type="checkbox"]{
         position: absolute;
         display: block;
         height: 32px;
@@ -100,7 +100,7 @@
         cursor: pointer;
     }
 
-    .navbar-container .hamburger-lines{
+    .navbar-custom-container .hamburger-lines{
         display: block;
         height: 28px;
         width: 35px;
@@ -113,7 +113,7 @@
         justify-content: space-between;
     }
 
-    .navbar-container .hamburger-lines .line{
+    .navbar-custom-container .hamburger-lines .line{
         display: block;
         height: 4px;
         width: 100%;
@@ -121,21 +121,21 @@
         background: #333;
     }
     
-    .navbar-container .hamburger-lines .line1{
+    .navbar-custom-container .hamburger-lines .line1{
         transform-origin: 0% 0%;
         transition: transform 0.3s ease-in-out;
     }
 
-    .navbar-container .hamburger-lines .line2{
+    .navbar-custom-container .hamburger-lines .line2{
         transition: transform 0.2s ease-in-out;
     }
 
-    .navbar-container .hamburger-lines .line3{
+    .navbar-custom-container .hamburger-lines .line3{
         transform-origin: 0% 100%;
         transition: transform 0.3s ease-in-out;
     }
 
-    .navbar .menu-items{
+    .navbar-custom .menu-items{
         padding-top: 100px;
         background: #fff;
         height: 100vh;
@@ -150,7 +150,7 @@
         overflow: scroll;
     }
 
-    .navbar .menu-items li{
+    .navbar-custom .menu-items li{
         margin-bottom: 1.8rem;
         font-size: 1.1rem;
         font-weight: 500;
@@ -163,26 +163,26 @@
         font-size: 2.5rem;
     }
 
-    .navbar-container input[type="checkbox"]:checked ~ .menu-items{
+    .navbar-custom-container input[type="checkbox"]:checked ~ .menu-items{
         transform: translateX(0);
     }
 
-    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1{
+    .navbar-custom-container input[type="checkbox"]:checked ~ .hamburger-lines .line1{
         transform: rotate(45deg);
     }
 
-    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2{
+    .navbar-custom-container input[type="checkbox"]:checked ~ .hamburger-lines .line2{
         transform: scaleY(0);
     }
 
-    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
+    .navbar-custom-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
         transform: rotate(-45deg);
     }
 
 }
 
 @media (max-width: 500px){
-    .navbar-container input[type="checkbox"]:checked ~ .logo{
+    .navbar-custom-container input[type="checkbox"]:checked ~ .logo{
         display: none;
     }
 }

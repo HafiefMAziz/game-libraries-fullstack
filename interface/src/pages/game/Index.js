@@ -5,7 +5,6 @@ import CreateForm from "./CreateForm";
 import { deleteGame, getGames} from "../../fetchs/gameFetch";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { Navbar,Footer } from '../../helper'
 const MySwal = withReactContent(Swal);
 
 function Index() {
@@ -44,29 +43,8 @@ function Index() {
     });
   };
 
-  const [loginStatus, setLoginStatus] = useState(false)
-
-  const loginCbHandler = (result) => {
-   setLoginStatus(result)
-  }
-  useEffect(() => {
-    if(localStorage.getItem('access_token')) {
-     setLoginStatus(true)
-    } else{
-     setLoginStatus(false)
-    }
-  
-    return () => {
-      
-    }
-  }, [loginStatus])
   return (
     <>
-    {loginStatus ? 
- <Navbar loginStatus={loginStatus} loginCbHandler={loginCbHandler}></Navbar> :
- <Navbar loginCbHandler={loginCbHandler}></Navbar>
- 
-}
       <CreateForm gamesChange={changeGames}/>
       <table className="table table-striped border mb-4 align-middle">
         <thead>
@@ -124,7 +102,6 @@ function Index() {
           })}
         </tbody>
       </table>
-      <Footer></Footer>
     </>
   );
 }

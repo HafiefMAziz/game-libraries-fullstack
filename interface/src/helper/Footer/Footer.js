@@ -11,7 +11,7 @@ const Footer = () => {
     <>
       <footer>
 
-<div class="footer-content">
+<div className="footer-content">
 
   <h3>JaggerPlay</h3>
 
@@ -19,7 +19,7 @@ const Footer = () => {
   PT. JaggerPlay Teknologi <br></br> Jl. Teknologi RT 002 RW 001 No. 210 Kp. Manggis Indah, Gubeng Kec. Dinoyo Malang, Jawa Timur - 162132 Indonesia
 </p>
 
-  <ul class="socials">
+  <ul className="socials">
 
     <li><img a></img></li>
 
@@ -37,7 +37,7 @@ const Footer = () => {
 
 </div>
 
-<div class="footer-bottom">
+<div className="footer-bottom">
 
   <p>Copyright @JaggerPlay 2023 </p>
 

@@ -10,11 +10,11 @@ import UpdateFormGenre from "../../pages/genre/UpdateForm"
 import Platform from "../../pages/platform/Index"
 import UpdateFormPlatform from "../../pages/platform/UpdateForm"
 import 'bootstrap/dist/css/bootstrap.css';
+
 function Dashboard() {
   return (
     <>
-      <div className="bg-image"></div>
-      <div className="custom-container my-4 py-1 px-5 mx-auto bg-light rounded">
+      <div className="container-fluid pt-5">
       <Routes>
         <Route exact path="/dashboard/games" element={<Game />}></Route>
         <Route exact path="/dashboard/games/updateform/:id" element={<UpdateFormGame />}></Route>
@@ -27,7 +27,7 @@ function Dashboard() {
       </Routes>
       </div>
     </>
-  )
+  );
 }
 
 export default Dashboard

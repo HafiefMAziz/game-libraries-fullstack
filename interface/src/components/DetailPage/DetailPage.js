@@ -61,7 +61,7 @@ const DetailPage = () => {
   }
   return (
     <>
-      <div className="row">
+      <div className="row-detail">
         <div className="leftcolumn">
           <div className="cards">
             <h2>{games.title}</h2>
