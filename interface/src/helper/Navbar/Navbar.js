@@ -42,16 +42,16 @@ const Navbar = (props) => {
  
   return (
     <>
-     <nav class="navbar">
-        <div class="navbar-container container-nav">
+     <nav className="navbar">
+        <div className="navbar-container container-nav">
             <input type="checkbox" name="" id=""/>
-            <div class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
+            <div className="hamburger-lines">
+                <span className="line line1"></span>
+                <span className="line line2"></span>
+                <span className="line line3"></span>
             </div>
-               {/* const access_token = localStorage.getItem("access_token"); */}
-            <ul class="menu-items">
+             
+            <ul className="menu-items">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
@@ -70,7 +70,7 @@ const Navbar = (props) => {
               }
                 
             </ul>
-            <h1 class="logo">JaggerPlay</h1>
+            <h1 className="logo">JaggerPlay</h1>
         </div>
     </nav>
     </>
