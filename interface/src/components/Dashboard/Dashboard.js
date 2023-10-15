@@ -10,6 +10,7 @@ import UpdateFormGenre from "../../pages/genre/UpdateForm"
 import Platform from "../../pages/platform/Index"
 import UpdateFormPlatform from "../../pages/platform/UpdateForm"
 import User from "../../pages/user/Index"
+import UpdateFormUser from "../../pages/user/UpdateForm"
 import 'bootstrap/dist/css/bootstrap.css';
 
 function Dashboard() {
@@ -26,6 +27,7 @@ function Dashboard() {
         <Route exact path="/dashboard/platforms" element={<Platform />}></Route>
         <Route exact path="/dashboard/platforms/updateform/:id" element={<UpdateFormPlatform />}></Route>
         <Route exact path="/dashboard/users" element={<User />}></Route>
+        <Route exact path="/dashboard/users/updateform/:id" element={<UpdateFormUser />}></Route>
       </Routes>
       </div>
     </>

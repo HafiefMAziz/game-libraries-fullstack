@@ -1,6 +1,7 @@
 import React, { useState }  from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { createUser } from "../../fetchs/userFetch";
+import Select from 'react-select';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -9,6 +10,10 @@ const MySwal = withReactContent(Swal)
 function CreateForm({usersChange}) {
   const [validated, setValidated] = useState(false);
   const [newUser, setNewUser] = useState({})
+  const [levelSelection, setLevelSelection] = useState([
+    { value: "admin", label: "Admin" },
+    { value: "user", label: "User" },
+  ])
 
   const [show, setShow] = useState(false);
   const handleClose = () => {setShow(false); usersChange(false)};
@@ -17,6 +22,7 @@ function CreateForm({usersChange}) {
   function onSubmitForm(e) {
     e.preventDefault();
     handleClose();
+    console.log(newUser)
     createUser(newUser, (res) => {
       console.log(res)
       // MySwal.fire({
@@ -69,15 +75,14 @@ function CreateForm({usersChange}) {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="inputPublisher">
-              <Form.Label>Publishers</Form.Label>
-              <Form.Select 
+              <Form.Label>Level</Form.Label>
+              <Select 
               required 
-              name="level" type="number" 
+              name="level" type="text" 
+              value={levelSelection[0]}
+              options={levelSelection}
               onChange={(e) => setNewUser({...newUser, level: e.target.value})}
-              >
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-              </Form.Select>
+              />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>

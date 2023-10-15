@@ -16,6 +16,7 @@ const getUsers = async (cb) => {
 
 const createUser = async (newUser, cb) => {
     try{
+        console.log(newUser);
         const res = await axios({
             method: "POST",
             url: `${url}/create`,
@@ -31,7 +32,7 @@ const createUser = async (newUser, cb) => {
 const deleteUser = async (userId, cb) => {
     try{
         const res = await axios({
-            method: "GET",
+            method: "DELETE",
             url: `${url}/delete/${userId}`
         })
         cb(res.data);
@@ -41,8 +42,33 @@ const deleteUser = async (userId, cb) => {
     }
 }
 
+const getOneUser = async (userId, cb) => {
+    try{
+        const res = await axios({
+            method: "GET",
+            url: `${url}/${userId}`,
+        })
+        cb(res.data);
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+
+const updateUser = async (updatedUser, userId, cb) => {
+    try{
+        const res = await axios({
+            method: "PUT",
+            url: `${url}/update/${userId}`,
+            data: updatedUser
+        })
+        cb(res.data);
+    }
+    catch(err) {
+        console.error(err);
+    }
+}
 
 
-
-export { getUsers, createUser, deleteUser}
+export { getUsers, createUser, deleteUser, getOneUser, updateUser}
 
