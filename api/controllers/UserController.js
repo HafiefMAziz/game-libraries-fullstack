@@ -24,6 +24,15 @@ class UserController {
       res.status(500).json(error);
     }
   }
+  static async getOneUser(req, res) {
+    try {
+      const userId = +req.params.id;
+      const result = await user.findByPk(userId);
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
   static async delete(req, res) {
     try {
       const id = +req.params.id;
