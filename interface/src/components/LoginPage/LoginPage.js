@@ -10,7 +10,7 @@ import { registerUser } from "../../fetchs/gamesFetch";
 const urls = "http://localhost:3000";
 
 const LoginPage = (props) => {
-  const navigate = useNavigate();
+
   const { loginCbHandler } = props;
   const handleLogin = () => {
     window.location.href = "/dashboard/games";

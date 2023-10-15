@@ -16,7 +16,25 @@ class UserController {
         res.status(500).json(error)
     }
   }
-  static async delete(req, res) {}
+  static async getUser(req,res){
+    try {
+        const result = await user.findAll()
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+  }
+  static async delete(req, res) {
+    try {
+        const id = +req.params.id;
+        let result = await user.destroy({
+            where: {id}
+        })
+        res.status(200).json({message :`delete success`})
+    } catch (error) {
+        res.status(500).json(error)
+    }
+  }
 
   static async login(req,res){
     try {
@@ -49,9 +67,7 @@ class UserController {
         res.status(500).json(error)
     }
   }
-  static async loginById(req ,res) {
-    
-  }
+
 }
 
 module.exports = UserController;

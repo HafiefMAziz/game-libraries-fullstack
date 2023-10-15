@@ -68,6 +68,9 @@ const Navbar = (props) => {
                   <NavDropdown.Item>
                     <Link to="/dashboard/publishers">Publishers</Link>
                   </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/dashboard/users">Users</Link>
+                  </NavDropdown.Item>
                 </NavDropdown>
               </li>
             ) : userData === "user" ? (
