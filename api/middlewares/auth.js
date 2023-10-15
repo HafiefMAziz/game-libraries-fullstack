@@ -62,34 +62,31 @@ const isAdmin = async (req, res, next) => {
 
 const isRegistered = async (req, res, next) => {
   console.log("jalan 1")
-  const { email,username } = req.body;
+  const { email,username} = req.body;
   try {
-    const result = await user.findOne({ where: {email : email, username : username } });
-   if(!result){
-    return res.status(401).json({ message: 'email sudah terdaftar' });
-   }
-    req.result = result
-    
-    next();
-  } catch (error) {
-    res.status(500).json(error);
-  }
-};
-
-const isName = async (req, res, next) => {
-  console.log("jalan 2")
-  const { username } = req.body;
-  try {
-    const result = await user.findOne({ where: { username } });
-    if (username === result.username) {
-      return res.status(200).send({ message: "nama telah terdaftar" });
+    const existingUsername = await user.findOne({
+      where: {
+        username: username,
+      },
+    });
+    const existingEmail = await user.findOne({
+      where: {
+        email: email,
+      },
+    });
+    if (existingUsername) {
+      return res.status(400).json({ message: 'Username already exists' });
     }
-    
+
+    if (existingEmail) {
+      return res.status(400).json({ message: 'Email already exists' });
+    }
     next();
   } catch (error) {
-    res.status(500).json(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 
 
-module.exports = { authentication, login, isAdmin, isRegistered , isName};
+
+module.exports = { authentication, login, isAdmin, isRegistered};
