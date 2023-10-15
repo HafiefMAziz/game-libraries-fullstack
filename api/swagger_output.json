@@ -104,7 +104,7 @@
       }
     },
     "/games/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Game"],
         "description": "",
         "parameters": [
@@ -123,7 +123,7 @@
       }
     },
     "/games/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Game"],
         "description": "idGenres must be array of integer or single integer and must be same value in the Table of Genre",
         "parameters": [
@@ -205,7 +205,7 @@
       }
     },
     "/platforms/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Platform"],
         "description": "",
         "parameters": [
@@ -224,7 +224,7 @@
       }
     },
     "/platforms/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Platform"],
         "description": "",
         "parameters": [
@@ -291,7 +291,7 @@
       }
     },
     "/genres/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Genre"],
         "description": "",
         "parameters": [
@@ -310,7 +310,7 @@
       }
     },
     "/genres/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Genre"],
         "description": "",
         "parameters": [
@@ -377,7 +377,7 @@
       }
     },
     "/publishers/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Publisher"],
         "description": "",
         "parameters": [
@@ -396,7 +396,7 @@
       }
     },
     "/publishers/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Publisher"],
         "description": "",
         "parameters": [
@@ -517,6 +517,38 @@
           }
         }
       }
+    },
+    "/users/update/{id}": {
+      "put": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Ubisoft"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
+    
   }
 }

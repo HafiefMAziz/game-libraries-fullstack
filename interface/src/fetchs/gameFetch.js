@@ -44,7 +44,7 @@ const createGame = async (newGame, cb) => {
 const deleteGame = async (gameId, cb) => {
     try{
         const res = await axios({
-            method: "GET",
+            method: "DELETE",
             url: `${url}/delete/${gameId}`
         })
         cb(res.data);
@@ -57,7 +57,7 @@ const deleteGame = async (gameId, cb) => {
 const updateGame = async (updatedGame, gameId, cb) => {
     try{
         const res = await axios({
-            method: "POST",
+            method: "PUT",
             url: `${url}/update/${gameId}`,
             data: updatedGame
         })

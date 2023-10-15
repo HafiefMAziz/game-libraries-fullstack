@@ -61,16 +61,35 @@ const isAdmin = async (req, res, next) => {
 };
 
 const isRegistered = async (req, res, next) => {
-  const { email } = req.body;
+  console.log("jalan 1")
+  const { email,username } = req.body;
   try {
-    const result = await user.findOne({ where: { email } });
-    if (email === result.email) {
-      return res.status(200).send({message: "email telah terdaftar"});
-    }
+    const result = await user.findOne({ where: {email : email, username : username } });
+   if(!result){
+    return res.status(401).json({ message: 'email sudah terdaftar' });
+   }
+    req.result = result
+    
     next();
   } catch (error) {
     res.status(500).json(error);
   }
 };
 
-module.exports = { authentication, login, isAdmin, isRegistered };
+const isName = async (req, res, next) => {
+  console.log("jalan 2")
+  const { username } = req.body;
+  try {
+    const result = await user.findOne({ where: { username } });
+    if (username === result.username) {
+      return res.status(200).send({ message: "nama telah terdaftar" });
+    }
+    
+    next();
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+
+module.exports = { authentication, login, isAdmin, isRegistered , isName};
