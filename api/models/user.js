@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       beforeCreate: function(user ,options){
         user.password = encryptPwd(user.password)
         user.level = user.level || 'user' 
-      }
+      },
+     
     },
     sequelize,
     modelName: 'user',
