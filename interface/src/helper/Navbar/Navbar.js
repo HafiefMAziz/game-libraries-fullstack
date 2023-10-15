@@ -56,19 +56,19 @@ const Navbar = (props) => {
             {userData === "admin" ? (
               <li>
                 <NavDropdown title="Dashboard" id="basic-nav-dropdown">
-                  <NavDropdown.Item>
+                  <NavDropdown.Item href="/dashboard/games">
                     <Link to="/dashboard/games">Games</Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
+                  <NavDropdown.Item href="/dashboard/genres">
                     <Link to="/dashboard/genres">Genres</Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
+                  <NavDropdown.Item href="/dashboard/platforms">
                     <Link to="/dashboard/platforms">Platforms</Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
+                  <NavDropdown.Item href="/dashboard/publishers">
                     <Link to="/dashboard/publishers">Publishers</Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>
+                  <NavDropdown.Item href="/dashboard/users">
                     <Link to="/dashboard/users">Users</Link>
                   </NavDropdown.Item>
                 </NavDropdown>

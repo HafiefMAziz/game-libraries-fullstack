@@ -37,8 +37,8 @@ function CreateForm({publishersChange}) {
             <Modal.Title>Add a new Publisher</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form.Group className="mb-3" controlId="inputTitle">
-              <Form.Label>Title</Form.Label>
+            <Form.Group className="mb-3" controlId="inputName">
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 required
                 name="name"

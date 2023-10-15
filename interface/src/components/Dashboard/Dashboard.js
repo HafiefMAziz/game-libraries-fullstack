@@ -9,12 +9,13 @@ import Genre from "../../pages/genre/Index"
 import UpdateFormGenre from "../../pages/genre/UpdateForm"
 import Platform from "../../pages/platform/Index"
 import UpdateFormPlatform from "../../pages/platform/UpdateForm"
+import User from "../../pages/user/Index"
 import 'bootstrap/dist/css/bootstrap.css';
 
 function Dashboard() {
   return (
     <>
-      <div className="container-fluid pt-5">
+      <div className="container-fluid px-5 py-5">
       <Routes>
         <Route exact path="/dashboard/games" element={<Game />}></Route>
         <Route exact path="/dashboard/games/updateform/:id" element={<UpdateFormGame />}></Route>
@@ -24,6 +25,7 @@ function Dashboard() {
         <Route exact path="/dashboard/genres/updateform/:id" element={<UpdateFormGenre />}></Route>
         <Route exact path="/dashboard/platforms" element={<Platform />}></Route>
         <Route exact path="/dashboard/platforms/updateform/:id" element={<UpdateFormPlatform />}></Route>
+        <Route exact path="/dashboard/users" element={<User />}></Route>
       </Routes>
       </div>
     </>

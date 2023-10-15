@@ -17,7 +17,6 @@ function Index() {
       setPlatforms(result.platforms)
       setPlatformsChange(true)
     });
-    console.log(platformsChange)
   }, [platformsChange]);
 
   const handleDelete = (platformId) => {

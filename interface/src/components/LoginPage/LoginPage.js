@@ -113,7 +113,7 @@ const LoginPage = (props) => {
               </fieldset>
               <button
                 onClick={() => submitHandler()}
-                type="submit"
+                type="button"
                 class="btn-login"
               >
                 Login

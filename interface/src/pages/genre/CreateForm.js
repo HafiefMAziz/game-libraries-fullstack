@@ -37,8 +37,8 @@ function CreateForm({genresChange}) {
             <Modal.Title>Add a new Genre</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form.Group className="mb-3" controlId="inputTitle">
-              <Form.Label>Title</Form.Label>
+            <Form.Group className="mb-3" controlId="inputName">
+              <Form.Label>Name</Form.Label>
               <Form.Control
                 required
                 name="name"

@@ -16,7 +16,6 @@ function Index() {
       setGames(result.games)
       setGamesChange(true)
     });
-    console.log(gamesChange)
   }, [gamesChange]);
 
   const handleDelete = (gameId) => {
@@ -76,7 +75,7 @@ function Index() {
                 <td>{game.publisher ? game.publisher.name : "-"}</td>
                 <td className="text-center">
                   <Link
-                    to={`/dashboard/games/detail/${game.id}`}
+                    to={`/games/detail/${game.id}`}
                     type="button"
                     className="btn btn-primary me-1"
                   >

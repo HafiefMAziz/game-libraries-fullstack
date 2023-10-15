@@ -17,7 +17,6 @@ function Index() {
       setPublishers(result.publishers)
       setPublishersChange(true)
     });
-    console.log(publishersChange)
   }, [publishersChange]);
 
   const handleDelete = (publisherId) => {

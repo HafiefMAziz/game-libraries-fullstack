@@ -17,7 +17,6 @@ function Index() {
       setGenres(result.genres)
       setGenresChange(true)
     });
-    console.log(genresChange)
   }, [genresChange]);
 
   const handleDelete = (genreId) => {
