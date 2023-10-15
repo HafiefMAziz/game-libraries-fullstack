@@ -11,6 +11,7 @@ body {
 }
 
 .forms-section {
+	padding-top: 170px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

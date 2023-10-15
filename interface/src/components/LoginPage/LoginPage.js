@@ -84,7 +84,7 @@ const LoginPage = (props) => {
   return (
     <>
       <section class="forms-section">
-        <h1 class="section-title">Login Page</h1>
+        <h1 class="section-title">Login</h1>
         <div class="forms">
           <div class="form-wrapper is-active">
             <button type="button" class="switcher switcher-login">
