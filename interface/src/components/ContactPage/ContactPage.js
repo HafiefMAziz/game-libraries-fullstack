@@ -14,7 +14,7 @@ const ContactPage = () => {
             <input type="text" placeholder="Nama" />
             <input type="email" placeholder="Alamat Email" />
             <input type="text" placeholder="Perusahaan" autocomplete="off" />
-            <input type="phone" placeholder="Telepone" autocomplete="off" />
+            <input type="number" placeholder="Telepone" autocomplete="off" />
             <textarea rows="10" placeholder="Pesan"></textarea>
             <button>Kirim</button>
             <form />

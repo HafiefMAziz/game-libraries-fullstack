@@ -32,7 +32,6 @@ const Footer = () => {
     <li><a href="#"><img src={twitter}></img></a></li>
 
 
-
   </ul>
 
 </div>

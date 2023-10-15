@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 import "./login.css";
 import { registerUser } from "../../fetchs/gamesFetch";
 
@@ -45,11 +43,7 @@ const LoginPage = (props) => {
         loginCbHandler(true);
       }
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: "check your email or password",
-      });
+      console.log(error);
     }
   };
 
@@ -84,7 +78,7 @@ const LoginPage = (props) => {
   return (
     <>
       <section class="forms-section">
-        <h1 class="section-title">Login</h1>
+     
         <div class="forms">
           <div class="form-wrapper is-active">
             <button type="button" class="switcher switcher-login">
