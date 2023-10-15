@@ -42,9 +42,6 @@ const login = async (req, res, next) => {
         .json({ message: "Username atau kata sandi salah." });
     }
 
-
-
-
     req.result = result;
     next();
   } catch (error) {
@@ -56,12 +53,24 @@ const login = async (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
- 
-  if(req.user && req.user.level === 'admin'){
-    next()
+  if (req.user && req.user.level === "admin") {
+    next();
   } else {
-    res.status(403).json({ message: 'Unauthorized' });
+    res.status(403).json({ message: "Unauthorized" });
   }
 };
 
-module.exports = { authentication, login,isAdmin };
+const isRegistered = async (req, res, next) => {
+  const { email } = req.body;
+  try {
+    const result = await user.findOne({ where: { email } });
+    if (email === result.email) {
+      return res.status(200).send({message: "email telah terdaftar"});
+    }
+    next();
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { authentication, login, isAdmin, isRegistered };

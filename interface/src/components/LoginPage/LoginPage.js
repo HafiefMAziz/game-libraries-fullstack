@@ -34,7 +34,7 @@ const LoginPage = (props) => {
       localStorage.setItem("access_token", access_token);
       localStorage.setItem("level", level);
       localStorage.setItem("username", username);
-
+      console.log(props)
       if (level === "admin") {
         handleLogin();
         loginCbHandler(true);
@@ -77,20 +77,20 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <section class="forms-section">
+      <section className="forms-section">
      
-        <div class="forms">
-          <div class="form-wrapper is-active">
-            <button type="button" class="switcher switcher-login">
+        <div className="forms">
+          <div className="form-wrapper is-active">
+            <button type="button" className="switcher switcher-login">
               Login
-              <span class="underline"></span>
+              <span className="underline"></span>
             </button>
-            <form class="form form-login">
+            <form className="form form-login">
               <fieldset>
                 <legend>
                   Please, enter your email and password for login.
                 </legend>
-                <div class="input-block">
+                <div className="input-block">
                   <label for="login-email">E-mail</label>
                   <input
                     onChange={(e) =>
@@ -100,7 +100,7 @@ const LoginPage = (props) => {
                     type="email"
                   />
                 </div>
-                <div class="input-block">
+                <div className="input-block">
                   <label for="login-password">Password</label>
                   <input
                     onChange={(e) =>
@@ -114,24 +114,24 @@ const LoginPage = (props) => {
               <button
                 onClick={() => submitHandler()}
                 type="submit"
-                class="btn-login"
+                className="btn-login"
               >
                 Login
               </button>
             </form>
           </div>
-          <div class="form-wrapper">
-            <button type="button" class="switcher switcher-signup">
+          <div className="form-wrapper">
+            <button type="button" className="switcher switcher-signup">
               Sign Up
-              <span class="underline"></span>
+              <span className="underline"></span>
             </button>
-            <form class="form form-signup">
+            <form className="form form-signup">
               <fieldset>
                 <legend>
                   Please, enter your email, password and password confirmation
                   for sign up.
                 </legend>
-                <div class="input-block">
+                <div className="input-block">
                   <label for="signup-email">Username</label>
                   <input
                     onChange={(e) =>
@@ -141,7 +141,7 @@ const LoginPage = (props) => {
                     type="username"
                   />
                 </div>
-                <div class="input-block">
+                <div className="input-block">
                   <label for="signup-email">E-mail</label>
                   <input
                     onChange={(e) =>
@@ -151,7 +151,7 @@ const LoginPage = (props) => {
                     type="email"
                   />
                 </div>
-                <div class="input-block">
+                <div className="input-block">
                   <label for="signup-password">Password</label>
                   <input
                     onChange={(e) =>
@@ -164,8 +164,8 @@ const LoginPage = (props) => {
               </fieldset>
               <button
                 onClick={() => registerHandler()}
-                type="submit"
-                class="btn-signup"
+                type="button"
+                className="btn-signup"
               >
                 Sign Up
               </button>
