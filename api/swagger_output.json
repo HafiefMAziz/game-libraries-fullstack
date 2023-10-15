@@ -179,6 +179,25 @@
         }
       }
     },
+    "/platforms/{id}": {
+      "get": {
+        "tags": ["Platform"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/platforms/create": {
       "post": {
         "tags": ["Platform"],
@@ -265,6 +284,25 @@
         }
       }
     },
+    "/genres/{id}": {
+      "get": {
+        "tags": ["Genre"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/genres/create": {
       "post": {
         "tags": ["Genre"],
@@ -344,6 +382,25 @@
       "get": {
         "tags": ["Publisher"],
         "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/publishers/{id}": {
+      "get": {
+        "tags": ["Publisher"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
