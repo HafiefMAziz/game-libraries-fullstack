@@ -31,7 +31,7 @@ const createPlatform = async (newPlatform, cb) => {
 const deletePlatform = async (platformId, cb) => {
     try{
         const res = await axios({
-            method: "GET",
+            method: "DELETE",
             url: `${url}/delete/${platformId}`
         })
         cb(res.data);
@@ -57,7 +57,7 @@ const getOnePlatform = async (platformId, cb) => {
 const updatePlatform = async (updatedPlatform, platformId, cb) => {
     try{
         const res = await axios({
-            method: "POST",
+            method: "PUT",
             url: `${url}/update/${platformId}`,
             data: updatedPlatform
         })

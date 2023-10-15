@@ -31,7 +31,7 @@ const createPublisher = async (newPublisher, cb) => {
 const deletePublisher = async (publisherId, cb) => {
     try{
         const res = await axios({
-            method: "GET",
+            method: "DELETE",
             url: `${url}/delete/${publisherId}`
         })
         cb(res.data);
@@ -57,7 +57,7 @@ const getOnePublisher = async (publisherId, cb) => {
 const updatePublisher = async (updatedPublisher, publisherId, cb) => {
     try{
         const res = await axios({
-            method: "POST",
+            method: "PUT",
             url: `${url}/update/${publisherId}`,
             data: updatedPublisher
         })

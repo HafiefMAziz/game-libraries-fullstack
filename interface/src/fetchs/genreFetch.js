@@ -31,7 +31,7 @@ const createGenre = async (newGenre, cb) => {
 const deleteGenre = async (genreId, cb) => {
     try{
         const res = await axios({
-            method: "GET",
+            method: "DELETE",
             url: `${url}/delete/${genreId}`
         })
         cb(res.data);
@@ -57,7 +57,7 @@ const getOneGenre = async (genreId, cb) => {
 const updateGenre = async (updatedGenre, genreId, cb) => {
     try{
         const res = await axios({
-            method: "POST",
+            method: "PUT",
             url: `${url}/update/${genreId}`,
             data: updatedGenre
         })
