@@ -80,6 +80,7 @@ const Navbar = (props) => {
             ) : null}
             {loginStatus ? (
               <li>
+                <span>{username} </span>
                 <a href="#" onClick={() => logoutHandler()}>
                   Logout
                 </a>

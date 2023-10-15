@@ -47,14 +47,20 @@ class UserController {
   static async update(req, res) {
     try {
       const id = +req.params.id;
-      const { username, level, email, password } = req.body;
-     
+      let { username, level, email, password } = req.body;
+      const oldUser = await user.findByPk(id);
+      if(!password) {
+        password = oldUser.password;
+      }else{
+        password = encryptPwd(password)
+      }
+      console.log(password)
       let result = await user.update(
         {
           username,
           level,
           email,
-          password : encryptPwd(password),
+          password,
         },
         {
           where: { id },

@@ -114,7 +114,7 @@ const LoginPage = (props) => {
               <button
                 onClick={() => submitHandler()}
                 type="button"
-                className="btn-login"
+                className="btn-login mx-5"
               >
                 Login
               </button>

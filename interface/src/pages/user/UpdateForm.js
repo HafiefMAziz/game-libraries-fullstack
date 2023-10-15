@@ -15,14 +15,23 @@ function UpdateForm() {
   const navigate = useNavigate();
   const params = useParams();
   const [updatedUser, setUpdatedUser] = useState({});
+  const [userId, setUserId] = useState(null)
+  const [validated, setValidated] = useState(false);
   
   useEffect(() => {
-    getOneUser(params.id, (res) =>  setUpdatedUser(res));
+    getOneUser(params.id, (res) =>  {
+      setUpdatedUser({
+      username: res.username,
+      level: res.level,
+      email: res.email
+      })
+      setUserId(res.id)
+    });
   }, [params]);
   
   const handleUpdate = (updatedUser) => {
     console.log(updatedUser);
-    updateUser(updatedUser, updatedUser.id, (res) => {
+    updateUser(updatedUser, userId, (res) => {
       console.log(res)
       MySwal.fire({
         title: <p>{res.message}</p>,
@@ -39,7 +48,7 @@ function UpdateForm() {
         <i className="bi bi-arrow-left-square"></i> Back
       </Link>
       <div className="div border rounded mb-4">
-        <Form className="my-4 mx-4">
+        <Form validated={validated} className="my-4 mx-4">
           <div className="row mb-4">
             <h4>Update User</h4>
           </div>
@@ -55,7 +64,7 @@ function UpdateForm() {
                   name="username"
                   type="text"
                   className="form-control"
-                  id="inputName"
+                  id="inputUsername"
                 />
               </div>
               <Form.Label htmlFor="inputEmail" className="col-sm-1 col-form-label">
@@ -69,13 +78,13 @@ function UpdateForm() {
                   name="email"
                   type="text"
                   className="form-control"
-                  id="inputName"
+                  id="inputEmail"
                 />
               </div>
           </Row>
           <Row className="mb-4">
               <Form.Label htmlFor="inputPassword" className="col-sm-1 col-form-label">
-                Password
+                New Password
               </Form.Label>
               <div className="col-sm-4">
                 <Form.Control
@@ -84,7 +93,7 @@ function UpdateForm() {
                   name="password"
                   type="password"
                   className="form-control"
-                  id="inputName"
+                  id="inputPassword"
                 />
               </div>
               <Form.Label htmlFor="levelInput" className="col-sm-1 col-form-label">
@@ -96,7 +105,7 @@ function UpdateForm() {
                 name="level" 
                 type="text" 
                 id="levelInput"
-                  onChange={(e) => setUpdatedUser({ ...updatedUser, level: +e.target.value, })}>
+                  onChange={(e) => setUpdatedUser({ ...updatedUser, level: e.target.value, })}>
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </Form.Select>

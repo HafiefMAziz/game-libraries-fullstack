@@ -19,17 +19,18 @@ function CreateForm({usersChange}) {
   const handleClose = () => {setShow(false); usersChange(false)};
   const handleShow = () => {setShow(true); usersChange(true)};
 
+  // console.log(newUser)
   function onSubmitForm(e) {
     e.preventDefault();
     handleClose();
-    console.log(newUser)
+    // console.log(newUser)
     createUser(newUser, (res) => {
       console.log(res)
-      // MySwal.fire({
-      //   title: <p>{res}</p>,
-      //   text: `${res} has been added to Data!`,
-      //   icon: 'success'
-      // })
+      MySwal.fire({
+        title: <p>A new user has been created</p>,
+        text: `${res.username} has been added to Data!`,
+        icon: 'success'
+      })
     })
 
   }
@@ -77,11 +78,12 @@ function CreateForm({usersChange}) {
             <Form.Group className="mb-3" controlId="inputPublisher">
               <Form.Label>Level</Form.Label>
               <Select 
+              className="basic-single"
               required 
               name="level" type="text" 
-              value={levelSelection[0]}
+              defaultValue={levelSelection[0]}
               options={levelSelection}
-              onChange={(e) => setNewUser({...newUser, level: e.target.value})}
+              onChange={(e) => setNewUser({...newUser, level: e.value})}
               />
             </Form.Group>
           </Modal.Body>
