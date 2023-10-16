@@ -16,7 +16,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 function Dashboard() {
   return (
     <>
-      <div className="container-fluid px-5 py-5">
       <Routes>
         <Route exact path="/dashboard/games" element={<Game />}></Route>
         <Route exact path="/dashboard/games/updateform/:id" element={<UpdateFormGame />}></Route>
@@ -29,7 +28,6 @@ function Dashboard() {
         <Route exact path="/dashboard/users" element={<User />}></Route>
         <Route exact path="/dashboard/users/updateform/:id" element={<UpdateFormUser />}></Route>
       </Routes>
-      </div>
     </>
   );
 }

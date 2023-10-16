@@ -44,63 +44,65 @@ function Index() {
 
   return (
     <>
-      <CreateForm gamesChange={changeGames}/>
-      <table className="table table-striped border mb-4 align-middle">
-        <thead>
-          <tr>
-            <th className="col-md-1">No</th>
-            <th className="col-md-2">Title</th>
-            <th className="col-md-2">Genres</th>
-            <th className="col-md-2">Release Year</th>
-            <th className="col-md-2">Publisher</th>
-            <th className="col-md-3 text-center">Options</th>
-          </tr>
-        </thead>
-        <tbody>
-          {games.map((game, index) => {
-            return (
-              <tr key={index}>
-                <th>{index + 1}</th>
-                <td>{game.title}</td>
-                <td>
-                  {game.genres.map((genre, index) => {
-                    return game.genres.length === index + 1 ? (
-                      <Fragment key={index}>{genre.name}.</Fragment>
-                    ) : (
-                      <Fragment key={index}>{genre.name}, </Fragment>
-                    );
-                  })}
-                </td>
-                <td>{game.yearRelease}</td>
-                <td>{game.publisher ? game.publisher.name : "-"}</td>
-                <td className="text-center">
-                  <Link
-                    to={`/games/detail/${game.id}`}
-                    type="button"
-                    className="btn btn-primary me-1"
-                  >
-                    <i className="bi bi-info-square"></i>
-                  </Link>
-                  <Link
-                    to={`/dashboard/games/updateform/${game.id}`}
-                    type="button"
-                    className="btn btn-warning me-1"
-                  >
-                    <i className="bi bi-pencil-square"></i>
-                  </Link>
-                  <Button
-                    onClick={() => handleDelete(game.id)}
-                    type="button"
-                    className="btn btn-danger"
-                  >
-                    <i className="bi bi-trash"></i>
-                  </Button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="container-fluid px-5 pt-5">
+        <CreateForm gamesChange={changeGames}/>
+        <table className="table table-striped border mb-4 align-middle">
+          <thead>
+            <tr>
+              <th className="col-md-1">No</th>
+              <th className="col-md-2">Title</th>
+              <th className="col-md-2">Genres</th>
+              <th className="col-md-2">Release Year</th>
+              <th className="col-md-2">Publisher</th>
+              <th className="col-md-3 text-center">Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            {games.map((game, index) => {
+              return (
+                <tr key={index}>
+                  <th>{index + 1}</th>
+                  <td>{game.title}</td>
+                  <td>
+                    {game.genres.map((genre, index) => {
+                      return game.genres.length === index + 1 ? (
+                        <Fragment key={index}>{genre.name}.</Fragment>
+                      ) : (
+                        <Fragment key={index}>{genre.name}, </Fragment>
+                      );
+                    })}
+                  </td>
+                  <td>{game.yearRelease}</td>
+                  <td>{game.publisher ? game.publisher.name : "-"}</td>
+                  <td className="text-center">
+                    <Link
+                      to={`/games/detail/${game.id}`}
+                      type="button"
+                      className="btn btn-primary me-1"
+                    >
+                      <i className="bi bi-info-square"></i>
+                    </Link>
+                    <Link
+                      to={`/dashboard/games/updateform/${game.id}`}
+                      type="button"
+                      className="btn btn-warning me-1"
+                    >
+                      <i className="bi bi-pencil-square"></i>
+                    </Link>
+                    <Button
+                      onClick={() => handleDelete(game.id)}
+                      type="button"
+                      className="btn btn-danger"
+                    >
+                      <i className="bi bi-trash"></i>
+                    </Button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

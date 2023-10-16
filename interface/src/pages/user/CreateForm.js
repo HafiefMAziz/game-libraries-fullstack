@@ -36,67 +36,69 @@ function CreateForm({usersChange}) {
   }
   return (
     <>
-      <Button className="btn btn-success my-4" onClick={handleShow}>
-        <i className="bi bi-plus-lg"></i>Add User
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Form validated={validated} onSubmit={onSubmitForm}>
-          <Modal.Header closeButton>
-            <Modal.Title>Add a new User</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form.Group className="mb-3" controlId="inputUsername">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                required
-                name="username"
-                type="text"
-                autoFocus
-                onChange={(e) => setNewUser({...newUser, username: e.target.value})}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="inputEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                required
-                name="email"
-                type="text"
-                autoFocus
-                onChange={(e) => setNewUser({...newUser, email: e.target.value})}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="inputPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                required
-                name="password"
-                type="password"
-                autoFocus
-                onChange={(e) => setNewUser({...newUser, password: e.target.value})}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="inputPublisher">
-              <Form.Label>Level</Form.Label>
-              <Select 
-              className="basic-single"
-              required 
-              name="level" type="text" 
-              defaultValue={levelSelection[0]}
-              options={levelSelection}
-              onChange={(e) => setNewUser({...newUser, level: e.value})}
-              />
-            </Form.Group>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" type="submit">
-              Add User
-            </Button>
-          </Modal.Footer>
-        </Form>
-      </Modal>
+      <div className="container-fluid px-5 pt-5">
+        <Button className="btn btn-success my-4" onClick={handleShow}>
+          <i className="bi bi-plus-lg"></i>Add User
+        </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Form validated={validated} onSubmit={onSubmitForm}>
+            <Modal.Header closeButton>
+              <Modal.Title>Add a new User</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form.Group className="mb-3" controlId="inputUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  required
+                  name="username"
+                  type="text"
+                  autoFocus
+                  onChange={(e) => setNewUser({...newUser, username: e.target.value})}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="inputEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  required
+                  name="email"
+                  type="text"
+                  autoFocus
+                  onChange={(e) => setNewUser({...newUser, email: e.target.value})}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="inputPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  required
+                  name="password"
+                  type="password"
+                  autoFocus
+                  onChange={(e) => setNewUser({...newUser, password: e.target.value})}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="inputPublisher">
+                <Form.Label>Level</Form.Label>
+                <Select 
+                className="basic-single"
+                required 
+                name="level" type="text" 
+                defaultValue={levelSelection[0]}
+                options={levelSelection}
+                onChange={(e) => setNewUser({...newUser, level: e.value})}
+                />
+              </Form.Group>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" type="submit">
+                Add User
+              </Button>
+            </Modal.Footer>
+          </Form>
+        </Modal>
+      </div>
     </>
   );
 }

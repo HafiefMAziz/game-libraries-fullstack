@@ -28,36 +28,38 @@ function CreateForm({publishersChange}) {
   }
   return (
     <>
-      <Button className="btn btn-success my-4" onClick={handleShow}>
-        <i className="bi bi-plus-lg"></i>Add Publisher
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Form validated={validated} onSubmit={onSubmitForm}>
-          <Modal.Header closeButton>
-            <Modal.Title>Add a new Publisher</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form.Group className="mb-3" controlId="inputName">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                required
-                name="name"
-                type="text"
-                autoFocus
-                onChange={(e) => setNewPublisher({...newPublisher, name: e.target.value})}
-              />
-            </Form.Group>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" type="submit">
-              Add Publisher
-            </Button>
-          </Modal.Footer>
-        </Form>
-      </Modal>
+      <div className="container-fluid px-5 pt-5">
+        <Button className="btn btn-success my-4" onClick={handleShow}>
+          <i className="bi bi-plus-lg"></i>Add Publisher
+        </Button>
+        <Modal show={show} onHide={handleClose}>
+          <Form validated={validated} onSubmit={onSubmitForm}>
+            <Modal.Header closeButton>
+              <Modal.Title>Add a new Publisher</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form.Group className="mb-3" controlId="inputName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  required
+                  name="name"
+                  type="text"
+                  autoFocus
+                  onChange={(e) => setNewPublisher({...newPublisher, name: e.target.value})}
+                />
+              </Form.Group>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" type="submit">
+                Add Publisher
+              </Button>
+            </Modal.Footer>
+          </Form>
+        </Modal>
+      </div>
     </>
   );
 }

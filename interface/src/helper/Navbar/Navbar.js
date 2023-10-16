@@ -54,25 +54,30 @@ const Navbar = (props) => {
             </li>
 
             {userData === "admin" ? (
-              <li>
-                <NavDropdown title="Dashboard" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/dashboard/games">
-                    <Link to="/dashboard/games">Games</Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/dashboard/genres">
-                    <Link to="/dashboard/genres">Genres</Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/dashboard/platforms">
-                    <Link to="/dashboard/platforms">Platforms</Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/dashboard/publishers">
-                    <Link to="/dashboard/publishers">Publishers</Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="/dashboard/users">
-                    <Link to="/dashboard/users">Users</Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </li>
+              <>
+                <li>
+                  <NavDropdown title="Dashboard" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="/dashboard/games">
+                      <Link to="/dashboard/games">Games</Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/dashboard/genres">
+                      <Link to="/dashboard/genres">Genres</Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/dashboard/platforms">
+                      <Link to="/dashboard/platforms">Platforms</Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/dashboard/publishers">
+                      <Link to="/dashboard/publishers">Publishers</Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/dashboard/users">
+                      <Link to="/dashboard/users">Users</Link>
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </li>
+                <li>
+                  <span>{username} </span>
+                </li>
+              </>
             ) : userData === "user" ? (
               <li>
                 <Link to="/"> {username}</Link>
@@ -80,7 +85,6 @@ const Navbar = (props) => {
             ) : null}
             {loginStatus ? (
               <li>
-                <span>{username} </span>
                 <a href="#" onClick={() => logoutHandler()}>
                   Logout
                 </a>

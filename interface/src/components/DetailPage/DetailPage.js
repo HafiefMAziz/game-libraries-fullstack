@@ -61,12 +61,15 @@ const DetailPage = () => {
   }
   return (
     <>
+      <div className="bg-image" style={{backgroundImage: `url(${games.imageUrl})`}}></div>
       <div className="row-detail">
         <div className="leftcolumn">
           <div className="cards">
             <h2>{games.title}</h2>
             <h5>{date} {getMonth(month)} {year}</h5>
-            <img className="gameimg" src={games.imageUrl}></img>
+            <div className="row">
+              <img className="gameimg" src={games.imageUrl}></img>
+            </div>
             <div className="description">{games.description}</div>
           </div>
         </div>
