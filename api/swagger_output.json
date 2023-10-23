@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API Game Libraries (Mini Project of Code Academy)",
+    "title": "REST API Jaggerplay",
     "description": ""
   },
   "host": "localhost:3000",
@@ -26,6 +26,10 @@
     {
       "name": "Publisher",
       "description": "Table Publishers"
+    },
+    {
+      "name": "User",
+      "description": "Table User"
     }
   ],
   "paths": {
@@ -100,7 +104,7 @@
       }
     },
     "/games/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Game"],
         "description": "",
         "parameters": [
@@ -119,7 +123,7 @@
       }
     },
     "/games/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Game"],
         "description": "idGenres must be array of integer or single integer and must be same value in the Table of Genre",
         "parameters": [
@@ -175,6 +179,25 @@
         }
       }
     },
+    "/platforms/{id}": {
+      "get": {
+        "tags": ["Platform"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/platforms/create": {
       "post": {
         "tags": ["Platform"],
@@ -201,7 +224,7 @@
       }
     },
     "/platforms/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Platform"],
         "description": "",
         "parameters": [
@@ -220,7 +243,7 @@
       }
     },
     "/platforms/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Platform"],
         "description": "",
         "parameters": [
@@ -261,6 +284,25 @@
         }
       }
     },
+    "/genres/{id}": {
+      "get": {
+        "tags": ["Genre"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/genres/create": {
       "post": {
         "tags": ["Genre"],
@@ -287,7 +329,7 @@
       }
     },
     "/genres/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Genre"],
         "description": "",
         "parameters": [
@@ -306,7 +348,7 @@
       }
     },
     "/genres/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Genre"],
         "description": "",
         "parameters": [
@@ -347,6 +389,25 @@
         }
       }
     },
+    "/publishers/{id}": {
+      "get": {
+        "tags": ["Publisher"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/publishers/create": {
       "post": {
         "tags": ["Publisher"],
@@ -373,7 +434,7 @@
       }
     },
     "/publishers/delete/{id}": {
-      "get": {
+      "delete": {
         "tags": ["Publisher"],
         "description": "",
         "parameters": [
@@ -392,7 +453,7 @@
       }
     },
     "/publishers/update/{id}": {
-      "post": {
+      "put": {
         "tags": ["Publisher"],
         "description": "",
         "parameters": [
@@ -421,6 +482,130 @@
           }
         }
       }
+    },
+    "/users": {
+      "get": {
+        "tags": ["User"],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/delete/{id}": {
+      "delete": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/create": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "galang"
+                },
+                "level": {
+                  "example": "user"
+                },
+                "email": {
+                  "example": "galang@gmail.com"
+                },
+                "password": {
+                  "example": "galang123"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "galang@gmail.com"
+                },
+                "password": {
+                  "example": "galang123"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/update/{id}": {
+      "put": {
+        "tags": ["User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "Ubisoft"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
+    
   }
 }

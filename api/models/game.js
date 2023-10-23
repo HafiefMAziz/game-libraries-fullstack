@@ -55,12 +55,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     publisherId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notNull: {
-          message: 'Please enter the publisher'
-        }
-      }
+      allowNull: null,
     }
   }, {
     hooks: {

@@ -3,9 +3,10 @@ const PublisherController = require('../controllers/PublisherController.js')
 
 
 publisherRoute.get('/', PublisherController.getPublishers)
+publisherRoute.get('/:id', PublisherController.getOnePublisher)
 publisherRoute.post('/create', PublisherController.create)
-publisherRoute.get('/delete/:id', PublisherController.delete)
-publisherRoute.post('/update/:id', PublisherController.update)
-publisherRoute.get('/updateForm/:id', PublisherController.updateForm)
+publisherRoute.delete('/delete/:id', PublisherController.delete)
+publisherRoute.put('/update/:id', PublisherController.update)
+publisherRoute.put('/updateForm/:id', PublisherController.updateForm)
 
 module.exports = publisherRoute

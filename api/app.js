@@ -6,6 +6,8 @@ const routes = require('./routes/index.js')
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
 
+const cors = require('cors')
+app.use(cors()) 
 
 app.use(express.json()); // supaya bisa req json
 app.use(express.urlencoded({extended : true}));
